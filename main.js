@@ -2,11 +2,14 @@ let input = document.querySelector(".input");
 let submit = document.querySelector(".add");
 let tasksDiv = document.querySelector(".tasks");
 
+
+
 let arrayOfTasks = [];
 
 if (window.localStorage.getItem("tasks")) {
   arrayOfTasks = JSON.parse(window.localStorage.getItem("tasks"));
 };
+
 
 getDataFromLocalStorage();
 
@@ -83,3 +86,13 @@ function toggleTaskWith(taskId) {
   }
   addDataToLocalStorageFrom(arrayOfTasks);
 }
+
+
+
+let clear=document.querySelector(".clear")
+
+  clear.addEventListener("click",function(){
+  localStorage.removeItem("tasks");
+  tasksDiv.innerHTML="";
+  arrayOfTasks=[]
+})
